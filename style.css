@@ -1,0 +1,493 @@
+/* ————————————————————————————————————————————————
+   the six realms · shared design system
+   one typographic voice; each realm keys its own weather.
+   ———————————————————————————————————————————————— */
+
+:root {
+  --serif: "EB Garamond", "Iowan Old Style", Georgia, serif;
+  --display: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  --measure: 42rem;
+  /* default (index) theme: night sky around the wheel */
+  --bg: #100e14;
+  --bg2: #1a1722;
+  --ink: #e8e2d6;
+  --ink-soft: #b3ab9c;
+  --accent: #d4a24e;
+  --accent-soft: rgba(212, 162, 78, 0.35);
+  --rule: rgba(232, 226, 214, 0.16);
+  --card: rgba(255, 255, 255, 0.035);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.1875rem;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* —— nav ————————————————————————————— */
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1.15rem;
+  justify-content: center;
+  padding: 1.1rem 1rem 1rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
+  background: color-mix(in srgb, var(--bg) 82%, black);
+}
+.site-nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding: 0.15rem 0;
+  border-bottom: 1px solid transparent;
+}
+.site-nav a:hover { color: var(--ink); }
+.site-nav a.here {
+  color: var(--accent);
+  border-bottom-color: var(--accent-soft);
+}
+.site-nav .wheel-link { color: var(--accent); }
+
+/* —— page scaffold ——————————————————— */
+
+main {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 1.25rem 5rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 4.5rem 1rem 3rem;
+}
+.hero .realm-sanskrit {
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 1.2rem;
+}
+.hero h1 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(2.6rem, 7vw, 4.4rem);
+  line-height: 1.05;
+  margin: 0 0 1.4rem;
+  letter-spacing: 0.01em;
+}
+.hero .gate {
+  max-width: 34rem;
+  margin: 0 auto;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 1.15rem;
+}
+.hero .gate cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-style: normal;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.ident {
+  margin: 2.2rem auto 0;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+.ident a { color: inherit; text-decoration: none; border-bottom: 1px dotted var(--accent-soft); }
+.ident em { color: var(--accent); font-style: normal; }
+
+h2 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.7rem;
+  letter-spacing: 0.02em;
+  margin: 3.2rem 0 1.1rem;
+  color: var(--ink);
+}
+h2::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 1px;
+  margin-top: 0.55rem;
+  background: var(--accent);
+  opacity: 0.6;
+}
+
+p { margin: 0 0 1.1rem; }
+a { color: var(--accent); text-decoration-color: var(--accent-soft); text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--accent); }
+em { letter-spacing: 0.01em; }
+
+.small-note {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+/* —— quotes ——————————————————————————— */
+
+blockquote {
+  margin: 2rem 0;
+  padding: 0 0 0 1.4rem;
+  border-left: 2px solid var(--accent-soft);
+  font-size: 1.15rem;
+}
+blockquote p { margin-bottom: 0.6rem; }
+blockquote.verse p { white-space: pre-line; }
+blockquote cite,
+.attrib {
+  display: block;
+  font-style: normal;
+  font-size: 0.8rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+blockquote cite a, .attrib a { color: inherit; }
+
+.epigraph {
+  border: none;
+  padding: 0;
+  text-align: center;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* —— media list (the texture section) ——— */
+
+.media-item {
+  margin: 2.4rem 0;
+  padding: 1.5rem 1.6rem 1.2rem;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+}
+.media-item .media-kind {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.4rem;
+}
+.media-item h3 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.35rem;
+  margin: 0 0 0.5rem;
+}
+.media-item h3 .by { font-weight: 400; color: var(--ink-soft); font-size: 1.05rem; }
+.media-item blockquote { margin: 1rem 0 0.4rem; font-size: 1.05rem; }
+.media-item p { font-size: 1.02rem; }
+
+/* —— tweets ——————————————————————————— */
+
+.tweet {
+  margin: 1.6rem 0;
+  padding: 1.2rem 1.4rem 0.9rem;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  font-size: 1.02rem;
+}
+.tweet p { margin-bottom: 0.7rem; white-space: pre-line; }
+.tweet .tweet-meta {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.tweet .tweet-meta a { color: inherit; text-decoration: none; }
+.tweet .tweet-meta a:hover { color: var(--accent); }
+
+/* —— the buddha appears ————————————————— */
+
+.buddha-note {
+  margin: 3rem 0;
+  padding: 2rem 1.8rem;
+  text-align: center;
+  border-top: 1px solid var(--accent-soft);
+  border-bottom: 1px solid var(--accent-soft);
+}
+.buddha-note .buddha-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.9rem;
+}
+.buddha-note p { font-style: italic; margin: 0; }
+.buddha-note .plain { font-style: normal; margin-top: 0.8rem; font-size: 0.98rem; color: var(--ink-soft); }
+
+/* —— embeds ——————————————————————————— */
+
+.embed-frame {
+  margin: 2rem 0;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.embed-frame iframe { display: block; width: 100%; border: 0; }
+
+/* —— the wheel (index nav) ————————————— */
+
+.wheel {
+  position: relative;
+  width: min(88vw, 30rem);
+  height: min(88vw, 30rem);
+  margin: 3rem auto;
+  border: 1px solid var(--accent-soft);
+  border-radius: 50%;
+}
+.wheel::before {
+  content: "";
+  position: absolute;
+  inset: 18%;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+}
+.wheel .hub {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  max-width: 9rem;
+}
+.wheel a.spoke {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  text-decoration: none;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 1.12rem;
+  line-height: 1.15;
+  padding: 0.4rem 0.6rem;
+  background: var(--bg);
+  border-radius: 4px;
+}
+.wheel a.spoke small {
+  display: block;
+  font-family: var(--serif);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: 0.15rem;
+}
+.wheel a.spoke:hover { color: var(--accent); }
+
+@media (max-width: 480px) {
+  .wheel { display: none; }
+}
+.wheel-list { display: none; }
+@media (max-width: 480px) {
+  .wheel-list { display: block; margin: 2rem 0; padding: 0; list-style: none; text-align: center; }
+  .wheel-list li { margin: 0.9rem 0; }
+  .wheel-list a { font-family: var(--display); font-size: 1.3rem; text-decoration: none; color: var(--ink); }
+  .wheel-list a small { display: block; font-family: var(--serif); font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+}
+
+/* —— footer / turning of the wheel ————— */
+
+.turn {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 5rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.95rem;
+}
+.turn a { text-decoration: none; color: var(--ink-soft); }
+.turn a:hover { color: var(--accent); }
+.turn .dir {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.2rem;
+}
+.turn .next { text-align: right; }
+
+.colophon {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+.colophon a { color: var(--ink-soft); }
+
+/* ————————————————————————————————————————————————
+   realm weather
+   ———————————————————————————————————————————————— */
+
+/* —— per-realm body language ——————————
+   same bones, different posture. */
+
+/* hell: compressed, heavy — the walls lean in */
+body.realm-hell .hero h1 {
+  letter-spacing: -0.015em;
+  font-weight: 600;
+  text-shadow: 0 0 38px rgba(255, 92, 56, 0.35);
+}
+body.realm-hell blockquote { border-left-width: 3px; }
+
+/* preta: stretched thin, starved of weight */
+body.realm-preta .hero h1 {
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: lowercase;
+}
+body.realm-preta main { --measure: 38rem; }
+body.realm-preta blockquote { border-left-style: dashed; }
+
+/* animal: soft, lowercase, edges blurred by fog */
+body.realm-animal .hero h1 { text-transform: lowercase; font-weight: 500; }
+body.realm-animal .media-item, body.realm-animal .tweet { border-radius: 12px; }
+
+/* human: upright roman, generous margins — a book page */
+body.realm-human .hero h1 { font-weight: 500; }
+body.realm-human blockquote { border-left-color: var(--accent); border-left-width: 1px; }
+
+/* asura: everything sharpened, slightly italic — mid-lunge */
+body.realm-asura .hero h1 { font-style: italic; font-weight: 600; letter-spacing: 0.01em; }
+body.realm-asura .media-item, body.realm-asura .tweet { border-radius: 0; }
+body.realm-asura h2::after { width: 5.5rem; height: 2px; }
+
+/* deva: weightless, floating in excess whitespace */
+body.realm-deva .hero { padding-top: 7rem; padding-bottom: 4.5rem; }
+body.realm-deva .hero h1 {
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-shadow: 0 0 44px rgba(216, 184, 255, 0.45);
+}
+body.realm-deva main { line-height: 1.75; }
+
+/* song embeds + placeholder */
+.video-frame { aspect-ratio: 16 / 9; }
+.video-placeholder {
+  margin: 2rem 0;
+  padding: 2.6rem 1.5rem;
+  border: 1px dashed var(--rule);
+  border-radius: 6px;
+  text-align: center;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.video-placeholder .attrib { margin-top: 0.5rem; }
+
+/* naraka — iron ground, ember light. heat pressing in. */
+body.realm-hell {
+  --bg: #160907;
+  --bg2: #2b0d08;
+  --ink: #f3ddcb;
+  --ink-soft: #c29d84;
+  --accent: #ff5c38;
+  --accent-soft: rgba(255, 92, 56, 0.4);
+  --rule: rgba(243, 221, 203, 0.15);
+  --card: rgba(255, 92, 56, 0.05);
+  background-image:
+    radial-gradient(ellipse 120% 55% at 50% 108%, rgba(255, 82, 34, 0.22), transparent 60%),
+    linear-gradient(var(--bg), var(--bg));
+  background-attachment: fixed;
+}
+
+/* preta — cold moonlit hunger. thin, pale, vacant. */
+body.realm-preta {
+  --bg: #0d1414;
+  --bg2: #12201f;
+  --ink: #d7e4de;
+  --ink-soft: #8fa39c;
+  --accent: #7fd4c1;
+  --accent-soft: rgba(127, 212, 193, 0.35);
+  --rule: rgba(215, 228, 222, 0.13);
+  --card: rgba(127, 212, 193, 0.045);
+  background-image:
+    radial-gradient(ellipse 70% 40% at 50% -8%, rgba(160, 220, 205, 0.10), transparent 65%),
+    linear-gradient(var(--bg), var(--bg));
+  background-attachment: fixed;
+}
+
+/* animal — loam and fog. heavy lids, soft edges. */
+body.realm-animal {
+  --bg: #171511;
+  --bg2: #221e16;
+  --ink: #e4dcc9;
+  --ink-soft: #a89e87;
+  --accent: #b0c261;
+  --accent-soft: rgba(176, 194, 97, 0.35);
+  --rule: rgba(228, 220, 201, 0.14);
+  --card: rgba(176, 194, 97, 0.05);
+  background-image:
+    radial-gradient(ellipse 130% 45% at 50% 112%, rgba(94, 106, 56, 0.20), transparent 60%),
+    linear-gradient(var(--bg), var(--bg));
+  background-attachment: fixed;
+}
+
+/* human — the one page in daylight: ink on paper. */
+body.realm-human {
+  --bg: #f4efe3;
+  --bg2: #eae3d2;
+  --ink: #262119;
+  --ink-soft: #6d6353;
+  --accent: #a33d1e;
+  --accent-soft: rgba(163, 61, 30, 0.35);
+  --rule: rgba(38, 33, 25, 0.18);
+  --card: rgba(38, 33, 25, 0.035);
+}
+body.realm-human .site-nav { background: #ece5d4; }
+body.realm-human .wheel a.spoke { background: var(--bg); }
+
+/* asura — storm steel and banner gold. everything sharpened. */
+body.realm-asura {
+  --bg: #0d1119;
+  --bg2: #131a28;
+  --ink: #dde4ef;
+  --ink-soft: #94a0b4;
+  --accent: #e0b23e;
+  --accent-soft: rgba(224, 178, 62, 0.4);
+  --rule: rgba(221, 228, 239, 0.14);
+  --card: rgba(224, 178, 62, 0.045);
+  background-image:
+    linear-gradient(160deg, rgba(48, 66, 105, 0.28) 0%, transparent 45%),
+    linear-gradient(var(--bg), var(--bg));
+  background-attachment: fixed;
+}
+
+/* deva — luminous height. so much light you squint. */
+body.realm-deva {
+  --bg: #191723;
+  --bg2: #241f33;
+  --ink: #efe9f7;
+  --ink-soft: #b0a7c4;
+  --accent: #d8b8ff;
+  --accent-soft: rgba(216, 184, 255, 0.35);
+  --rule: rgba(239, 233, 247, 0.15);
+  --card: rgba(216, 184, 255, 0.05);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -12%, rgba(216, 184, 255, 0.16), transparent 60%),
+    linear-gradient(var(--bg), var(--bg));
+  background-attachment: fixed;
+}
