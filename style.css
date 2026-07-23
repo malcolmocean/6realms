@@ -7,11 +7,11 @@
   --serif: "EB Garamond", "Iowan Old Style", Georgia, serif;
   --display: "Cormorant Garamond", "EB Garamond", Georgia, serif;
   --measure: 42rem;
-  /* default (index) theme: night sky around the wheel */
-  --bg: #100e14;
-  --bg2: #1a1722;
-  --ink: #e8e2d6;
-  --ink-soft: #b3ab9c;
+  /* default (index) theme: keyed to the thangka — maroon silk, gold brocade */
+  --bg: #170b0e;
+  --bg2: #221016;
+  --ink: #ecdcc2;
+  --ink-soft: #b49c80;
   --accent: #d4a24e;
   --accent-soft: rgba(212, 162, 78, 0.35);
   --rule: rgba(232, 226, 214, 0.16);
@@ -396,6 +396,21 @@ blockquote cite a, .attrib a { color: inherit; }
    realm weather — each page keyed to its artwork
    ———————————————————————————————————————————————— */
 
+/* —— index · keyed to the thangka ——————————
+   maroon silk ground; the wheel mounted in brocade. */
+body.realm-index {
+  background-image:
+    radial-gradient(ellipse 90% 45% at 50% -8%, rgba(212, 162, 78, 0.07), transparent 60%),
+    linear-gradient(var(--bg), var(--bg));
+  background-attachment: fixed;
+}
+body.realm-index .realm-art img {
+  border: 1px solid rgba(212, 162, 78, 0.55);
+  outline: 8px solid #451418;
+  box-shadow: 0 0 0 9px rgba(212, 162, 78, 0.3);
+  margin: 18px auto 24px;
+}
+
 /* —— naraka · keyed to Bosch —————————————
    ember light in oily blackness; old-print letterforms. */
 body.realm-hell {
@@ -451,19 +466,22 @@ body.realm-preta blockquote { border-left-style: dashed; }
 body.realm-preta .realm-art img { filter: sepia(0.08); }
 
 /* —— animal · keyed to Bruegel ————————————
-   ochre and loam; soft round drowsy letterforms. */
+   the land of cockaigne: full-bellied afternoon gold,
+   everything round, everything heavy-lidded. */
 body.realm-animal {
   --display: "Fraunces", "EB Garamond", serif;
-  --bg: #1d160d;
-  --bg2: #2a2012;
-  --ink: #ead9b9;
-  --ink-soft: #ab9877;
-  --accent: #d2a53c;
-  --accent-soft: rgba(210, 165, 60, 0.35);
-  --rule: rgba(234, 217, 185, 0.14);
-  --card: rgba(210, 165, 60, 0.05);
+  --bg: #e0cd9f;
+  --bg2: #d5c08a;
+  --ink: #3b2c13;
+  --ink-soft: #7a6538;
+  --accent: #a5341f;
+  --accent-soft: rgba(165, 52, 31, 0.4);
+  --rule: rgba(59, 44, 19, 0.22);
+  --card: rgba(255, 249, 231, 0.45);
+  --nav-bg: #d6c28c;
   background-image:
-    radial-gradient(ellipse 130% 45% at 50% 112%, rgba(140, 100, 40, 0.22), transparent 60%),
+    radial-gradient(ellipse 100% 55% at 50% -10%, rgba(255, 246, 214, 0.65), transparent 65%),
+    radial-gradient(ellipse 130% 45% at 50% 112%, rgba(122, 92, 40, 0.25), transparent 60%),
     linear-gradient(var(--bg), var(--bg));
   background-attachment: fixed;
 }
@@ -472,8 +490,15 @@ body.realm-animal .hero h1 {
   font-weight: 600;
   letter-spacing: 0;
 }
-body.realm-animal .media-item, body.realm-animal .tweet { border-radius: 14px; }
-body.realm-animal .realm-art img { border-radius: 8px; }
+body.realm-animal main { line-height: 1.75; }
+body.realm-animal .media-item, body.realm-animal .tweet {
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(59, 44, 19, 0.08);
+}
+body.realm-animal .realm-art img {
+  border-radius: 8px;
+  box-shadow: 0 10px 32px rgba(59, 44, 19, 0.25);
+}
 
 /* —— human · keyed to Dürer ————————————————
    the one page in daylight: engraving ink on laid paper. */
